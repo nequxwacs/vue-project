@@ -5,7 +5,7 @@
       </div>
      <div class="nav_links">
        <router-link to="/" class="nav_link" href="#">Home</router-link>
-       <a class="nav_link" href="#">About</a>
+       <router-link to="/about" class="nav_link" href="#">About</router-link>
        <a class="nav_link" href="#">Contacts</a> 
      </div>
      <div class="signs_container">
