@@ -1,5 +1,5 @@
 <template>
-    <p v-if="isElVisable" class="title">Вы еще не вошли в систему</p>
+    <p v-if="num == null" class="title">Вы еще не вошли в систему</p>
     <p v-else class="title">{{ massage }}</p>
 </template>
 
@@ -10,11 +10,11 @@ export default {
     name: 'this-Home',
     setup() {
         const massage = ref('')
+        const num = localStorage.getItem('id')
 
         
 
         onMounted( async() => {
-            const num = localStorage.getItem('id')
 
             fetch('https://dummyjson.com/users/' + num)
             .then(res => res.json())
@@ -23,20 +23,17 @@ export default {
  
               massage.value = 'Welcome' + ' ' + firstName
             })
-            // .then(console.log)
         })
 
         return {
-            massage
+            massage,
+            num
         }
-    },
-
-    data: () => {
-      return {
-          isElVisable: false
-      }
     }
 }
+
+
+
 </script>
 
 <style scoped>
