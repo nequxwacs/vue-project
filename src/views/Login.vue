@@ -8,6 +8,7 @@
 </template>
 
 <script lang="ts">
+import axios from 'axios'
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -22,24 +23,32 @@ export default {
       const router = useRouter()
 
       const submit = async () => {
-          const response = await fetch('https://dummyjson.com/auth/login', {
+          await fetch('https://dummyjson.com/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
           })
-
           .then(res => res.json())
-          .then(user => {
-            let id = user.id
-              
+          .then(res => {
+            let id = res.id
+            let token = res.token
+
+            axios.post("http://localhost/polls/public/api/logout", {
+              headers: {
+              Authorization: `Bearer ${token}`
+              }
+            })
+
             localStorage.setItem('id', id)
+            localStorage.setItem('token', token)
           })
-          
 
           await router.push('/')
 
         
       }
+
+      
 
       return {
           data,

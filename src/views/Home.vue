@@ -1,6 +1,7 @@
 <template>
-    <p v-if="num == null" class="title">Вы еще не вошли в систему</p>
-    <p v-else class="title">{{ massage }}</p>
+    <div class="container">
+        <p v-if="num == null" class="title">Вы еще не вошли в систему</p>
+    </div>
 </template>
 
 <script lang="ts">
@@ -8,11 +9,10 @@ import { onMounted, ref } from 'vue';
 
 export default {
     name: 'this-Home',
+
     setup() {
         const massage = ref('')
         const num = localStorage.getItem('id')
-
-        
 
         onMounted( async() => {
 
@@ -21,7 +21,7 @@ export default {
             .then(user => {
               let firstName = user.firstName
  
-              massage.value = 'Welcome' + ' ' + firstName
+              massage.value = firstName
             })
         })
 
@@ -37,9 +37,10 @@ export default {
 </script>
 
 <style scoped>
+
 .title {
-    font-size: 24px;
-    font-weight: 5  00;
+    font-size: 16px;
+    font-weight: 500;
     font-family: Arial, Helvetica, sans-serif;
 }
 </style>
