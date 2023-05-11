@@ -1,4 +1,5 @@
 <template>
+  <div class="container">
     <div class="navigation">
      <div class="nav_links">
        <router-link to="/" class="nav_link" href="#">Home</router-link>
@@ -14,6 +15,7 @@
       </div> 
      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -58,17 +60,21 @@ export default {
 </script>
 
 <style scoped>
-
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(17, 34, 17, 0.10);
+  position: fixed;
+}
 .navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 87%;
+  width: 86%;
   height: 70px;
-  padding: 0 100px;
-  background-color: #fff;
-  box-shadow: 0px 4px 16px rgba(17, 34, 17, 0.05);
-  position: fixed;
 }
 .userName {
   font-size: 16px;

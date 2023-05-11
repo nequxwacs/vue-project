@@ -1,17 +1,39 @@
 <template>
     <div class="card">
         <div class="img_container">
-            <img src="{{ img }}" alt="">
+            <img class="img" :src="img" alt="">
         </div>
         <div class="content">
-            <h3 class="subject">Subject</h3>
-            <p class="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, hic.</p>
-            <div class="btn_containers">
-                <h4 class="price">
-                    $ 53
-                </h4>
+            <h3 class="subject">{{ title }}</h3>
+                <div class="">
+                    <h4 class="medium">
+                    {{ category }}
+                    </h4>
+                </div>
+                <div class="">
+                    <h4 class="medium">
+                    Запас: {{ stock }}
+                    </h4>
+                </div>
+                <div class="">
+                    <h4 class="discount">
+                    Скидка / &nbsp;
+                    <p class="discount">{{ discount }}%</p> 
+                    </h4>
+                </div>
+                <div class="btn_containers">
+                <div class="">
+                    <h4 class="price">
+                    $ {{ price }}
+                    </h4>
+                </div>
                 <button class="btn">Add to cart</button>
-            </div>
+                </div>
+                <div class="">
+                    <h4 class="reguler">
+                    {{ description }}
+                    </h4>
+                </div>
         </div>
     </div>
 </template>
@@ -22,32 +44,50 @@ export default {
     props: [
         'title',
         'img',
-        'price'
+        'price',
+        'text',
+        'category',
+        'description',
+        'discount',
+        'stock'
     ]
 }
 </script>
 
 <style scoped>
+
+.content {
+    height: auto;
+}
 .card {
     padding: 10px;
-    height: 360px;
+    margin-bottom: 40px;
+    height: auto;
     border-radius: 10px;
-    background-color: #ffffff;
-    border: 1px solid #0eaa00;
-    transition: .2s;
+    /* background-color: #ffffff; */
+    /* border: 1px solid #0eaa00; */
+    transition: .1s;
+    box-shadow: 0px 2px 6px rgba(14, 170, 0, 0.20);
 }
 .card:hover {
-    box-shadow: 0px 4px 16px rgba(14, 170, 0, 0.25);
-    transition: .2s;
+    box-shadow: 0px 2px 10px rgba(14, 170, 0, 0.30);;
+    transition: .1s;
+
 }
 
 .img_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 160px;
+    max-height: 366px;
     margin-bottom: 15px;
     border-radius: 10px;
-    background-color: rgb(237, 255, 235);
-    border: 1px solid #0eaa00;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.10);
+    /* border: 1px solid #0eaa00; */
+    overflow: hidden;
+}.img {
+    width: 100%;
 }
 
 .subject {
@@ -55,16 +95,42 @@ export default {
     font-family: 'Montserrat';
     font-weight: 700;
 }
-.text {
-    font-size: 13px;
+.reguler {
+    font-size: 14px;
     font-family: 'Montserrat';
     font-weight: 500;
 }
+
+.medium {
+    font-size: 14px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+.bold {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Montserrat';
+}
+
+.discount {
+    display: flex;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Montserrat';
+}
 .price {
+    display: flex;
     text-align: left;
     font-size: 18px;
     font-weight: 700;
     font-family: 'Montserrat';
+}
+
+.discount {
+    margin: 0;
+    color: rgb(255, 0, 0);
 }
 
 .btn_containers {
@@ -84,13 +150,13 @@ export default {
     border-radius: 6px;
     font-family: 'Montserrat';
     border: 1px solid #0eaa00;
-    transition: 0.1s;
+    transition: 0.2s;
 }.btn:hover {
-     cursor: pointer;
-    box-shadow: 0px 4px 16px rgba(14, 170, 0, 0.25);
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(14, 170, 0, 0.30);
 }.btn:active {
     color: #0eaa00;
     background-color: #fff;
-    transition: 0.1s;
+    transition: 0.2s;
 }
 </style>

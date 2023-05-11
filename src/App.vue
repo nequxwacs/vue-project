@@ -3,8 +3,10 @@
     <Nav></Nav>
   </header>
 
-  <main class="main_container">
-    <router-view/>
+  <main class="select">
+    <div class="select__container">
+      <router-view/>
+    </div>
   </main>
 
   <footer class="footer">
@@ -53,18 +55,22 @@ body {
 }
 
 .header {
-  
+  width: 100%;
 }
 
-.main_container {
+.select {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 1400px;
+}
+
+.select__container {
+  /* display: flex;
+  justify-content: center; */
 }
 
 .footer {
-    margin-top: 200px;
+  margin-top: 200px;
 }
 
 </style>

@@ -65,7 +65,7 @@ display: flex;
 flex-direction: column;
 gap: 20px;
 width: 200px;
-height: auto;
+height: 230px;
 border: 1px solid grey;
 background-color: #fff;
 border-radius: 10px;

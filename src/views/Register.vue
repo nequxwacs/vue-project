@@ -30,7 +30,6 @@ export default {
               body: JSON.stringify(data)
             })
             .then(res => res.json())
-            .then(console.log);
 
             await router.push('/login');
         }
